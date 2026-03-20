@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Comandas App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h1>Mesas</h1>
+
+  <div id="mesas"></div>
+
+  <hr>
+
+  <div id="pedido" style="display:none;">
+    <h2 id="mesaTitulo"></h2>
+
+    <button onclick="agregarProducto()">+ Agregar producto</button>
+
+    <div id="pedidoLista"></div>
+    <div id="menuOpciones"></div>
+
+    <h3 id="total"></h3>
+
+    <button onclick="enviarPedido()">Enviar a cocina</button>
+    <button onclick="cerrarPedido()">Cerrar pedido</button>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</body>
+</html>
+
+<hr>
+
+<h2>👨‍🍳 Cocina</h2>
+<div id="cocina"></div>
+
+<hr>
+<h2>📊 Resumen del día</h2>
+<h3>Filtrar por fecha</h3>
+<input type="date" id="filtroFecha">
+
+<button onclick="mostrarResumen()">Filtrar</button>
+<button onclick="mostrarResumen()">Ver resumen</button>
+<button onclick="verTodo()">Ver todo</button>
+<button onclick="exportarPDF()">📄 Exportar a PDF</button>
+
+<div id="resumen"></div>
+
+<div class="container">
+  <div class="mesas"></div>
+  <div class="pedido"></div>
+  <div class="cocina"></div>
+</div>
