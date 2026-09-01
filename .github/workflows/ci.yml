@@ -1,0 +1,38 @@
+name: KitchenSync CI
+
+on:
+  push:
+    branches:
+      - main
+      - refactor/firebase-architecture
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install web dependencies
+        run: npm install
+
+      - name: Install Functions dependencies
+        run: npm --prefix functions install
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Build web application
+        run: npm run build
+
+      - name: Build Cloud Functions
+        run: npm run functions:build
